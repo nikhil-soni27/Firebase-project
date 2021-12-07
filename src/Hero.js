@@ -7,8 +7,7 @@ const Hero = ({handleLogout}) => {
             <nav>
                 <h2>Welcome</h2>
                 <button className="btn" onClick={handleLogout}>Logout</button>                
-            </nav>           
-            
+            </nav>                 
             <Inside/>
         </div>
     )

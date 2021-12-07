@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-import MoviesList from "./components/MoviesList";
-import AddMovie from "./components/AddMovie";
+import TextList from "./components/TextList";
+import AddText from "./components/AddText";
 import "./Inside.css"
 
 function Inside() {
@@ -58,7 +58,7 @@ function Inside() {
   let content = <p>Found no Text.</p>;
 
   if (text.length > 0) {
-    content = <MoviesList text={text} />;
+    content = <TextList text={text} />;
   }
 
   if (error) {
@@ -72,7 +72,7 @@ function Inside() {
   return (
     <React.Fragment>
       <section>
-        <AddMovie onAddMovie={addTextHandler} />
+        <AddText onAddText={addTextHandler} />
       </section>
       <section>
         <button onClick={fetchText} className="btn">Fetch data</button>
