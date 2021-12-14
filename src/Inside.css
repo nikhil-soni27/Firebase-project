@@ -6,7 +6,9 @@ section {
   background-color: white;
   padding: 2rem;
 }
-
+img{
+  object-fit: cover;
+}
 /* button {
   font: inherit;
   cursor: pointer;

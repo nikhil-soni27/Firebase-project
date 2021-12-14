@@ -6,6 +6,7 @@ import "./Inside.css"
 
 function Inside() {
   const [text, setText] = useState([]);
+  const [image, setImage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -28,9 +29,11 @@ function Inside() {
         loadedText.push({
           id: key,
           title: data[key].title,
+          image:data[key].image,
         });
       }
       setText(loadedText);
+      setImage(loadedText);
     } catch (error) {
       setError(error.message);
     }
@@ -57,8 +60,8 @@ function Inside() {
 
   let content = <p>Found no Text.</p>;
 
-  if (text.length > 0) {
-    content = <TextList text={text} />;
+  if (text.length && image.length > 0) {
+    content = <TextList text={text} image={image}/>;
   }
 
   if (error) {
@@ -75,7 +78,7 @@ function Inside() {
         <AddText onAddText={addTextHandler} />
       </section>
       <section>
-        <button onClick={fetchText} className="btn">Fetch data</button>
+        <button onClick={fetchText} className="btn">Fetch from Firebase</button>
       </section>
       <section>{content}</section>
     </React.Fragment>

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Inside from "./Inside"
 const Hero = ({handleLogout}) => {
     return (

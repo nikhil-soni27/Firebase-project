@@ -21,8 +21,7 @@ const{email,setEmail,password,setPassword,handleLogin,handleSignup,hasAccount,se
                Don't have an account ? 
                <span onClick={()=>setHasAccount(!hasAccount)}>Sign up</span>
                </p>
-                        </>
-                    ):(
+                        </>):(
                         <>
                         <button className="btn"onClick={handleSignup}>Sign up</button>
                      <p>Have an account ? 
