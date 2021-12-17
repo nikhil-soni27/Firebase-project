@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-
 import TextList from "./components/TextList";
-import AddText from "./components/AddText";
+import CreatePost from "./components/CreatePost";
 import "./Inside.css"
 
 function Inside() {
@@ -9,7 +8,7 @@ function Inside() {
   const [image, setImage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  
   const fetchText = useCallback(async () => {
     setIsLoading(true);
     setError(null);
@@ -23,7 +22,7 @@ function Inside() {
 
       const data = await response.json();
 
-      const loadedText = [];
+      const loadedText = []
 
       for (const key in data) {
         loadedText.push({
@@ -45,7 +44,6 @@ function Inside() {
   }, [fetchText]);
 
   async function addTextHandler(texter) {
-    console.log(texter);
     const response = await fetch(
       "https://login-a3b0b-default-rtdb.firebaseio.com/data.json",
       {
@@ -71,11 +69,10 @@ function Inside() {
   if (isLoading) {
     content = <p>Loading...</p>;
   }
-
   return (
     <React.Fragment>
       <section>
-        <AddText onAddText={addTextHandler} />
+        <CreatePost onAddText={addTextHandler} text="hello"/>
       </section>
       <section>
         <button onClick={fetchText} className="btn">Fetch from Firebase</button>
@@ -84,5 +81,4 @@ function Inside() {
     </React.Fragment>
   );
 }
-
 export default Inside;

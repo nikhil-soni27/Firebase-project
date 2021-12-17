@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import {Fire} from "./Fire"
 import Hero from "./Hero";
 import Login from "./Login";
-
+import Inside from "./Inside"
+import CreatePost from "./components/CreatePost"
+import {Route,Switch} from "react-router-dom";
+import AllPost from "./components/AllPost"
 function App() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -85,7 +88,8 @@ function App() {
     <div className="App">
       {user ? (
         <Hero handleLogout={handleLogout} />
-      ) : (
+           ) : (
+             
         <Login
           email={email}
           setEmail={setEmail}
@@ -99,6 +103,11 @@ function App() {
           passwordError={passwordError}
         />
       )}
+      {/* <Inside/> */}
+      <Switch>
+                <Route exact path="/allpost" component={AllPost} />
+                <Route exact path="/createpost" component={CreatePost} />
+            </Switch>
     </div>
   );
 }
